@@ -1,12 +1,14 @@
 import React, { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
-import { Box, Button, Input, InputBase, TextField } from '@material-ui/core';
-import { Message } from './Message';
 import { Socket } from 'socket.io-client'
-import { useState } from 'react';
+
 import { newMessageBuilder } from '../utls';
 import { IMessage, ColorsType, IServerMessage, IServerUserJoinedOrLeft } from '../types';
 
-interface Iprops {
+import { Box, TextField } from '@material-ui/core';
+import { Message } from './Message';
+import { useState } from 'react';
+
+interface IChat {
   socket: Socket
   setMessages: Dispatch<SetStateAction<IMessage[]>>
   messages: IMessage[]
@@ -14,9 +16,7 @@ interface Iprops {
   colorMessage: ColorsType
 }
 
-
-
-export const Chat: React.FC<Iprops> = ({
+export const Chat: React.FC<IChat> = ({
   socket,
   setMessages,
   messages,
