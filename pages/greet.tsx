@@ -1,8 +1,13 @@
-import React, { Dispatch, SetStateAction, SyntheticEvent } from 'react'
-import { Box, Button, FormControl, Input, InputBase, makeStyles, TextField, Typography } from '@material-ui/core';
-import { useState, ChangeEventHandler } from 'react';
+import React, {
+  useState,
+  Dispatch,
+  SetStateAction,
+  SyntheticEvent,
+  ChangeEventHandler
+} from 'react'
+import { Box, InputBase, makeStyles, Typography } from '@material-ui/core';
 
-interface IProps {
+interface IGreet {
   onSubmit: (event: SyntheticEvent) => void
   setUserName: Dispatch<SetStateAction<string>>
 }
@@ -20,11 +25,9 @@ const useStyle = makeStyles({
     textAlign: 'center',
     'borderBottom': '2px solid #fff'
   },
-  inputUnderline: {
-  }
 })
 
-export default function Greet(props: IProps) {
+export default function Greet(props: IGreet) {
   const { onSubmit, setUserName } = props
   const classes = useStyle()
 
@@ -34,7 +37,6 @@ export default function Greet(props: IProps) {
     setName(event.currentTarget.value)
     setUserName(event.currentTarget.value)
   }
-
 
   return (
     <Box

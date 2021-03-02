@@ -1,9 +1,11 @@
 import { SyntheticEvent, useEffect, useState } from 'react'
-import Greet from './greet';
 import { io } from 'socket.io-client'
+
 import { newMessageBuilder, getRandomColor } from '../utls';
 import { IMessage, ColorsType, IServerUserJoinedOrLeft } from '../types';
+
 import { Chat } from '../components/Chat';
+import Greet from './greet';
 
 
 export default function Index() {
@@ -32,10 +34,7 @@ export default function Index() {
 
   const onSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
-
     setLogged(true)
-    setMessages((prevMessages) => [...prevMessages,])
-
     socket.emit('add user', userName)
   }
 

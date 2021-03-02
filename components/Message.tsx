@@ -10,18 +10,14 @@ export const Message: React.FC<IMessage> = ({ messageType, user, text, color }) 
         fontSize: '20px'
       }}
     >
-      {
-        user ? (
-          <Typography
-            component='span'
-            style={{ marginRight: '8px', color }}
-          >
-            {user}
-          </Typography>
-        )
-          : null
-      }
-
+      {user && (
+        <Typography
+          component='span'
+          style={{ marginRight: '8px', color }}
+        >
+          {user}
+        </Typography>
+      )}
       <Typography
         component='span'
         style={{
